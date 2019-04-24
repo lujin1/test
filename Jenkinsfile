@@ -7,7 +7,7 @@ pipeline {
       }
       steps {
         sh 'echo "$imageLine" > anchore_images'
-        anchore(name: 'anchore_images', bailOnFail: true, engineverify: true, bailOnPluginFail: true, bailOnWarn: true)
+        anchore(name: 'anchore_images', engineverify: true)
       }
     }
   }
