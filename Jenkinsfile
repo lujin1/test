@@ -3,16 +3,9 @@ pipeline {
     label 'jenkins-maven'
   }
   stages {
-    stage('111') {
+    stage('anchore') {
       steps {
-        echo '22'
-      }
-    }
-    stage('222') {
-      steps {
-        sh '''ls -l
-hostname
-ifconfig'''
+        anchore(name: 'anchore_images', bailOnFail: true, engineverify: true, bailOnPluginFail: true, bailOnWarn: true)
       }
     }
   }
