@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('anchore') {
       steps {
-        def imageLine = 'lujin525/jenkins-alpinenode:v4'
+        imageLine = 'lujin525/jenkins-alpinenode:v4'
         writeFile file: 'anchore_images', text: imageLine
         anchore(name: 'anchore_images', bailOnFail: true, engineverify: true, bailOnPluginFail: true, bailOnWarn: true)
       }
